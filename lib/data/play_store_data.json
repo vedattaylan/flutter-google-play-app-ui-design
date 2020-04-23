@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "Games",
+    "items": [
+      {
+        "id": 1,
+        "title": "For you",
+        "categories": [
+          {
+            "name": "Discover Recommended Games",
+            "items": [
+              {
+                "id": 1,
+                "title": "Call Of Duty Mobile",
+                "category": ["Action", "Shooter"],
+                "score": "4.5",
+                "size": "1.6 GB",
+                "images": [],
+                "logo": ""
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
