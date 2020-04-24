@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: primaryColor,
-        fontFamily: 'ProductSanssss',
+        fontFamily: 'ProductSans',
       ),
       home: HomePage(),
     );
