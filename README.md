@@ -1,4 +1,4 @@
-# google_play_app
+# Flutter Google Play App UI Design
 
 A new Flutter project.
 
