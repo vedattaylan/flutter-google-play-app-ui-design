@@ -4,13 +4,19 @@ import 'package:google_play_app/views/GamesPage.dart';
 import 'package:google_play_app/widgets/CustomDrawer.dart';
 import 'package:google_play_app/widgets/Search.dart';
 
+_HomePageState homePageState;
+
 class HomePage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageState createState() {
+    homePageState = _HomePageState();
+    return homePageState;
+  }
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  bool isAppBar = true;
   int selectedBottomNavigationBarIndex = 0;
   List<Widget> _pages = <Widget>[
     GamesPage(),
@@ -74,8 +80,15 @@ class _HomePageState extends State<HomePage> {
           margin: EdgeInsets.all(5),
           child: Column(
             children: <Widget>[
-              SearchWidget(
-                scaffoldKey: _scaffoldKey,
+              PreferredSize(
+                preferredSize: Size.fromHeight(kToolbarHeight),
+                child: AnimatedContainer(
+                  height: isAppBar ? 60.0 : 0,
+                  duration: Duration(milliseconds: 200),
+                  child: SearchWidget(
+                    scaffoldKey: _scaffoldKey,
+                  ),
+                ),
               ),
               _pages[selectedBottomNavigationBarIndex]
             ],

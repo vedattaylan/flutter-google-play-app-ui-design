@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_play_app/views/HomePage.dart';
 
 class SearchWidget extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
@@ -8,7 +9,6 @@ class SearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      height: 40,
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
@@ -18,10 +18,11 @@ class SearchWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
           boxShadow: [
             BoxShadow(
-                color: Colors.grey[300],
-                blurRadius: 1,
-                spreadRadius: 1,
-                offset: Offset(0, 0))
+              color: homePageState.isAppBar ? Colors.grey[300] : Colors.white,
+              blurRadius: 1,
+              spreadRadius: 1,
+              offset: Offset(0, 0),
+            ),
           ]),
       child: Container(
         margin: EdgeInsets.symmetric(
@@ -30,13 +31,13 @@ class SearchWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.dehaze),
-              color: Colors.black54,
-              onPressed: () {
-                scaffoldKey.currentState.openDrawer();
-              },
-            ),
+            (homePageState.isAppBar
+                ? IconButton(
+                    icon: Icon(Icons.dehaze),
+                    color: Colors.black54,
+                    onPressed: () => scaffoldKey.currentState.openDrawer(),
+                  )
+                : Container()),
             Text(
               'Search for apps & games',
               style: TextStyle(
@@ -44,13 +45,14 @@ class SearchWidget extends StatelessWidget {
               ),
             ),
             Expanded(child: SizedBox()),
-            IconButton(
-              icon: Icon(Icons.mic_none),
-              color: Colors.black54,
-              onPressed: () {
-                scaffoldKey.currentState.openDrawer();
-              },
-            ),
+            homePageState.isAppBar
+                ? IconButton(
+                    autofocus: false,
+                    icon: Icon(Icons.mic_none),
+                    color: Colors.black54,
+                    onPressed: null,
+                  )
+                : Container(),
             SizedBox(
               width: 10,
             ),
@@ -64,6 +66,9 @@ class SearchWidget extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
+            ),
+            SizedBox(
+              width: 10,
             )
           ],
         ),

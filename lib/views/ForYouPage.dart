@@ -1,12 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:google_play_app/models/Enums.dart';
 import 'package:google_play_app/utils/utils.dart';
 import 'package:google_play_app/views/AppDetail.dart';
+import 'package:google_play_app/views/HomePage.dart';
 
-class ForYouPage extends StatelessWidget {
+class ForYouPage extends StatefulWidget {
+  @override
+  _ForYouPageState createState() => _ForYouPageState();
+}
+
+class _ForYouPageState extends State<ForYouPage> {
+  ScrollController _scrollController = new ScrollController();
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        setAppBarStatus(false);
+      }
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.forward) {
+        setAppBarStatus(true);
+      }
+    });
+  }
+
+  void setAppBarStatus(bool status) {
+    // setState(() {
+    //   _isAppBar = status;
+    //   print(_isAppBar);
+    // });
+    homePageState.setState(() {
+      homePageState.isAppBar = status;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: _scrollController,
       physics: ScrollPhysics(),
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       scrollDirection: Axis.vertical,
@@ -79,7 +113,10 @@ class ForYouPageItems extends StatelessWidget {
                 IconButton(
                     icon: Icon(Icons.arrow_forward),
                     onPressed: () {
-                      print('Pressed');
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => CustomAppBar()));
                     })
               ],
             ),

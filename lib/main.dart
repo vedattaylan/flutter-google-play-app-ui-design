@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
         primaryColor: primaryColor,
         fontFamily: 'ProductSans',
       ),
-      home: HomePage(),
+      home: SafeArea(child: HomePage()),
     );
   }
 }

@@ -471,10 +471,186 @@ class AppDetail extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 20,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Game Play 2.1',
+                    style: smallTextStyle,
+                  ),
+                  Text(
+                    'Controls 2.0',
+                    style: smallTextStyle,
+                  ),
+                  Text(
+                    'Graphics 2.1',
+                    style: smallTextStyle,
+                  )
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(
+                horizontal: 20,
+                vertical: 20,
+              ),
+              child: Column(
+                children: <Widget>[
+                  AppComments(),
+                  AppComments(),
+                  AppComments(),
+                  AppComments(),
+                  AppComments(),
+                ],
+              ),
             )
           ],
         ),
       )),
+    );
+  }
+}
+
+class AppComments extends StatelessWidget {
+  const AppComments({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/vedat.jpg'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 15,
+              ),
+              Expanded(
+                child: Text(
+                  'Vedat TAYLAN',
+                  style: smallBoldTextStyle,
+                ),
+              ),
+              IconButton(icon: Icon(Icons.more_vert), onPressed: null),
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 20),
+            child: Row(
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.star,
+                      color: primaryColor,
+                      size: 12,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: primaryColor,
+                      size: 12,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: primaryColor,
+                      size: 12,
+                    ),
+                    Icon(
+                      Icons.star,
+                      color: primaryColor,
+                      size: 12,
+                    ),
+                    Icon(
+                      Icons.star_half,
+                      color: primaryColor,
+                      size: 12,
+                    )
+                  ],
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  '4/19/20',
+                  style: smallBoldTextStyle,
+                ),
+              ],
+            ),
+          ),
+          RichText(
+            text: TextSpan(
+                text:
+                    'Hello The RichText widget displays text that uses multiple different styles. The text to display is described using a tree of TextSpan objects, each of which has an associated style that is used for that subtree. The text might break across multiple lines or might all be displayed on the same line depending on the layout constraints.',
+                style: smallBoldTextStyle),
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 30),
+            child: Row(
+              children: <Widget>[
+                Text(
+                  'Was this review helpful?',
+                  style: smallTextStyle,
+                ),
+                Expanded(
+                  child: SizedBox(),
+                ),
+                FlatButton(
+                  child: Text(
+                    'Yes',
+                    style: TextStyle(
+                      color: Colors.black54,
+                    ),
+                  ),
+                  color: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      side: BorderSide(
+                        color: Colors.grey,
+                      )),
+                  onPressed: () {},
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                FlatButton(
+                  child: Text(
+                    'No',
+                    style: TextStyle(
+                      color: Colors.black54,
+                    ),
+                  ),
+                  color: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      side: BorderSide(
+                        color: Colors.grey,
+                      )),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
