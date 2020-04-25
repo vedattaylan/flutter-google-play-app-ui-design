@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_play_app/models/Enums.dart';
 import 'package:google_play_app/utils/utils.dart';
+import 'package:google_play_app/views/ForYouPage.dart';
 
 class AppDetail extends StatefulWidget {
   @override
@@ -564,7 +566,55 @@ class _AppDetailState extends State<AppDetail>
                               AppComments(),
                             ],
                           ),
-                        )
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(
+                            vertical: 20,
+                          ),
+                          child: ExpansionTile(
+                            title: Text('Developer contact'),
+                            children: <Widget>[
+                              ListTile(
+                                title: Text('Website'),
+                                leading: Icon(Icons.vpn_lock),
+                              ),
+                              ListTile(
+                                title: Text('Email'),
+                                leading: Icon(Icons.email),
+                                subtitle: Text('vdattaylan@gmail.com'),
+                              ),
+                              ListTile(
+                                title: Text('Address'),
+                                leading: Icon(Icons.pin_drop),
+                                subtitle: Text(
+                                    'Ivedik OSB Mahallesi - Teknopark ANKARA'),
+                              ),
+                              ListTile(
+                                title: Text('Privacy policy'),
+                                leading: Icon(Icons.security),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          child: Column(
+                            children: <Widget>[
+                              ForYouPageItems(
+                                itemName: 'New & Updated games',
+                                itemSize: ItemSize.small,
+                              ),
+                              ForYouPageItems(
+                                itemName: 'Related to this app',
+                                itemSize: ItemSize.small,
+                              ),
+                              ForYouPageItems(
+                                itemName: 'You might also like',
+                                itemSize: ItemSize.small,
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
