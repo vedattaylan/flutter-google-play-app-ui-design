@@ -49,15 +49,19 @@ class _ForYouPageState extends State<ForYouPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ForYouPageItems(
-            itemName: 'Discover Recommended Games',
-            itemSize: ItemSize.big,
-          ),
-          ForYouPageItems(
-            itemName: 'Motorsports Games',
-            itemSize: ItemSize.big,
+            itemName: 'Previously installed apps',
+            itemSize: ItemSize.small,
           ),
           ForYouPageItems(
             itemName: 'Suggested for you',
+            itemSize: ItemSize.small,
+          ),
+          ForYouPageItems(
+            itemName: 'Books & reference',
+            itemSize: ItemSize.small,
+          ),
+          ForYouPageItems(
+            itemName: 'Discover science',
             itemSize: ItemSize.small,
           ),
           ForYouPageItems(
@@ -66,11 +70,7 @@ class _ForYouPageState extends State<ForYouPage> {
           ),
           ForYouPageItems(
             itemName: 'Game Spotlight',
-            itemSize: ItemSize.spotlight,
-          ),
-          ForYouPageItems(
-            itemName: 'Suggested for you',
-            itemSize: ItemSize.suggestedForYou,
+            itemSize: ItemSize.small,
           ),
           ForYouPageItems(
             itemName: 'Recommended for you',
@@ -82,7 +82,7 @@ class _ForYouPageState extends State<ForYouPage> {
           ),
           ForYouPageItems(
             itemName: 'Casual Games',
-            itemSize: ItemSize.big,
+            itemSize: ItemSize.small,
           ),
         ],
       ),
@@ -213,7 +213,7 @@ class SmallItem extends StatelessWidget {
                           image: DecorationImage(
                             image: AssetImage(
                               (index % 2 == 0
-                                  ? 'assets/images/brawl-stars-logo.png'
+                                  ? 'assets/images/shadow-blood.png'
                                   : 'assets/images/csr-racing-2-logo.png'),
                             ),
                             fit: BoxFit.cover,

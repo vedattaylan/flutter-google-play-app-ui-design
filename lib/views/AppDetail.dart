@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_play_app/models/Enums.dart';
 import 'package:google_play_app/utils/utils.dart';
-import 'package:google_play_app/views/ForYouPage.dart';
+import 'package:google_play_app/views/games/ForYouPage.dart';
 
 class AppDetail extends StatefulWidget {
   @override

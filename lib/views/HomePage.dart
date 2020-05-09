@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_play_app/utils/utils.dart';
+import 'package:google_play_app/views/AppsPage.dart';
 import 'package:google_play_app/views/GamesPage.dart';
 import 'package:google_play_app/widgets/CustomDrawer.dart';
 import 'package:google_play_app/widgets/Search.dart';
@@ -21,9 +22,7 @@ class _HomePageState extends State<HomePage>
   int selectedBottomNavigationBarIndex = 0;
   List<Widget> _pages = <Widget>[
     GamesPage(),
-    Text(
-      'Apps',
-    ),
+    AppsPage(),
     Text(
       'Movies',
     ),
@@ -47,6 +46,7 @@ class _HomePageState extends State<HomePage>
         onTap: (index) {
           setState(() {
             selectedBottomNavigationBarIndex = index;
+            isAppBar = true;
           });
         },
         items: <BottomNavigationBarItem>[

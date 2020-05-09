@@ -4,14 +4,14 @@ import 'package:google_play_app/utils/utils.dart';
 import 'package:google_play_app/views/ComingSoonPage.dart';
 import 'package:google_play_app/views/TopChartsPage.dart';
 
-import 'games/ForYouPage.dart';
+import 'apps/ForYouPage.dart';
 
-class GamesPage extends StatefulWidget {
+class AppsPage extends StatefulWidget {
   @override
-  _GamesPageState createState() => _GamesPageState();
+  _AppsPageState createState() => _AppsPageState();
 }
 
-class _GamesPageState extends State<GamesPage>
+class _AppsPageState extends State<AppsPage>
     with SingleTickerProviderStateMixin {
   TabController _controller;
   final List<TabPageModel> _tabPageModels = [
